@@ -4,3 +4,4 @@
     url = /home/roger.tarso/Documentos/Udacity/-deploy-ml-model-on-Heroku-with-FastAPI
 ['remote "s3remote"']
     url = s3://dvcdev/ml/
+    version_aware = true

@@ -2,3 +2,7 @@ outs:
 - md5: c5bdd6523fe7cb0f9f354454d6e1fa2a
   size: 3518606
   path: cleaned_data.csv
+  cloud:
+    s3remote:
+      etag: c5bdd6523fe7cb0f9f354454d6e1fa2a
+      version_id: YiO8N3h3qVUynGzNtzglTNOHprX8qZHx
