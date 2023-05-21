@@ -22,8 +22,10 @@ row = {
     "native_country": "Honduras",
 }
 
-# response = requests.get('https://vin-project3-app.herokuapp.com/')
-response = requests.post(url="http://127.0.0.1:8000/inference", json=row)
+# response = requests.post(url="http://127.0.0.1:8000/inference", json=row)
+response = requests.post(
+    url="https://udacity-project.herokuapp.com/inference", json=row
+)
 
 print(response.status_code)
 print(response.json())
