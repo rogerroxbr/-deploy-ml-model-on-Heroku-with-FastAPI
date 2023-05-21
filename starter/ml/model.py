@@ -1,4 +1,18 @@
+"""
+Module contain model
+Author : Roger de Tarso
+Date : 20th may 2023
+"""
+import logging
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+
+logging.basicConfig(
+    level=logging.INFO,
+    filemode="w",
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 
 # Optional: implement hyperparameter tuning.
@@ -17,8 +31,12 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+    clf = RandomForestClassifier(
+        random_state=8, max_depth=16, n_estimators=128
+    )
+    clf.fit(X_train, y_train)
 
-    pass
+    return clf
 
 
 def compute_model_metrics(y, preds):
@@ -44,7 +62,7 @@ def compute_model_metrics(y, preds):
 
 
 def inference(model, X):
-    """ Run model inferences and return the predictions.
+    """Run model inferences and return the predictions.
 
     Inputs
     ------
@@ -57,4 +75,9 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    preds = model.predict(X)
+
+    return preds
+
+
+logging.info("SUCCESS: Inference model")
